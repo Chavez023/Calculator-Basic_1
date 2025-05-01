@@ -1,0 +1,151 @@
+/* Theme Variables */
+:root {
+    --background: linear-gradient(-45deg, #d7dfe8, #e3e3ec, #cfd8dc, #e0e0e0);
+    --text-color: #000;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --button-bg: rgba(255, 255, 255, 0.2);
+    --button-hover: rgba(255, 255, 255, 0.3);
+  }
+  
+  body.dark {
+    --background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+    --text-color: #fff;
+    --glass-bg: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --button-bg: rgba(255, 255, 255, 0.08);
+    --button-hover: rgba(255, 255, 255, 0.15);
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background: var(--background);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.6s ease, color 0.4s ease;
+    overflow: hidden;
+  }
+  
+  /* Morphing animated background */
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .calculator {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+  }
+  
+  .display {
+    width: 100%;
+    height: 60px;
+    font-size: 28px;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: var(--button-bg);
+    color: var(--text-color);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  
+  .btn {
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 14px;
+    background: var(--button-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .btn:hover {
+    background: var(--button-hover);
+  }
+  
+  .btn.operator {
+    background: rgba(255, 165, 0, 0.25);
+    color: #fff;
+  }
+  
+  .btn.operator:hover {
+    background: rgba(255, 165, 0, 0.4);
+  }
+  
+  .btn.equal {
+    background: rgba(0, 200, 83, 0.3);
+    grid-row: span 2;
+    color: #fff;
+  }
+  
+  .btn.equal:hover {
+    background: rgba(0, 200, 83, 0.45);
+  }
+  
+  .btn.clear {
+    background: rgba(211, 47, 47, 0.3);
+    grid-row: span 2;
+    color: #fff;
+  }
+  
+  .btn.clear:hover {
+    background: rgba(211, 47, 47, 0.5);
+  }
+  
+  .btn.zero {
+    grid-column: span 2;
+  }
+  
+
+  
+  /* Theme Toggle Button */
+  .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  body.dark .theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
